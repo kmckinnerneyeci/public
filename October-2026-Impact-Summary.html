@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>October 2026 Impact Summary – Kevin McKinnerney</title>
+<style>
+:root{--bg:#f5f7fa;--card:#ffffff;--ink:#0f172a;--muted:#5b6475;--line:#e3e8ef;--accent:#0b4f8a;--accent2:#0f766e;--chip:#eef3f9;--shadow:0 1px 3px rgba(15,23,42,.08)}
+@media (prefers-color-scheme: dark){:root{--bg:#0d1117;--card:#161b22;--ink:#e6edf3;--muted:#9aa4b2;--line:#2a313c;--accent:#6cb6ff;--accent2:#3fd0b8;--chip:#1f2630;--shadow:none}}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Segoe UI",system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5}
+header{background:linear-gradient(135deg,#0b2d52,#0b4f8a 60%,#0f766e);color:#fff;padding-block:32px 28px;padding-inline:max(24px,calc(50% - 560px))}
+header h1{margin:0 0 4px;font-size:28px}
+header p{margin:0;opacity:.88}
+.wrap{max-width:1120px;margin-inline:auto;padding:20px 24px 48px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-block:-36px 20px}
+.kpi{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;box-shadow:var(--shadow)}
+.kpi b{display:block;font-size:26px;color:var(--accent)}
+.kpi span{font-size:13px;color:var(--muted)}
+nav{display:flex;gap:6px;flex-wrap:wrap;border-block-end:1px solid var(--line);margin-block-end:18px}
+nav button{background:none;border:0;padding:10px 14px;font:inherit;color:var(--muted);cursor:pointer;border-block-end:3px solid transparent}
+nav button.on{color:var(--accent);border-block-end-color:var(--accent);font-weight:600}
+.panel{display:none}.panel.on{display:block}
+.toolbar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-block-end:14px}
+.chip{border:1px solid var(--line);background:var(--chip);color:var(--ink);border-radius:999px;padding:5px 12px;font:inherit;font-size:13px;cursor:pointer}
+.chip.on{background:var(--accent);border-color:var(--accent);color:#fff}
+input[type=search]{flex:1;min-width:200px;padding:8px 12px;border-radius:8px;border:1px solid var(--line);background:var(--card);color:var(--ink);font:inherit}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);overflow:hidden}
+.card .top{padding:14px 16px;border-inline-start:5px solid var(--c);cursor:pointer}
+.card h3{margin:0;font-size:17px;display:flex;justify-content:space-between;gap:8px}
+.tag{font-size:11px;font-weight:600;padding:2px 8px;border-radius:999px;background:var(--chip);color:var(--muted);white-space:nowrap}
+.card p{margin:6px 0 0;color:var(--muted);font-size:14px}
+.card .more{display:none;padding:0 16px 14px 21px;font-size:14px}
+.card.open .more{display:block}
+.card ul{margin:8px 0;padding-inline-start:18px}
+.card li{margin-block-end:4px}
+.lbl{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--accent2);margin-block-start:10px}
+.hint{font-size:12px;color:var(--muted);margin-block-start:6px}
+table{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--line);border-radius:10px;overflow:hidden;font-size:14px}
+th,td{padding:9px 12px;text-align:start;border-block-end:1px solid var(--line)}
+th{background:var(--chip);cursor:pointer;user-select:none;font-size:13px}
+tr:last-child td{border-block-end:0}
+.dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-inline-end:6px;vertical-align:middle}
+.tl{position:relative;padding-inline-start:26px}
+.tl:before{content:"";position:absolute;inset-block:6px;inset-inline-start:8px;width:2px;background:var(--line)}
+.wk{position:relative;margin-block-end:16px}
+.wk:before{content:"";position:absolute;inset-inline-start:-23px;top:16px;width:12px;height:12px;border-radius:50%;background:var(--accent);border:2px solid var(--card)}
+.wk h4{margin:0;font-size:15px}
+.wk h4 small{color:var(--muted);font-weight:400;margin-inline-start:8px}
+.bars{display:grid;gap:8px;margin-block:8px 20px}
+.bar{display:grid;grid-template-columns:120px 1fr 32px;gap:10px;align-items:center;font-size:13px}
+.bar i{display:block;height:12px;border-radius:6px;background:var(--c)}
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:16px}
+.ask{display:flex;gap:10px;align-items:flex-start;padding:10px 0;border-block-end:1px solid var(--line)}
+.ask:last-child{border:0}
+.ask input{margin-block-start:5px;inline-size:16px;block-size:16px}
+.ask.done span.t{text-decoration:line-through;color:var(--muted)}
+.box{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 18px;box-shadow:var(--shadow)}
+.box h3{margin:0 0 8px;font-size:16px}
+.sum{font-size:15px;max-width:900px}
+.btn{border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:8px;padding:6px 12px;font:inherit;font-size:13px;cursor:pointer}
+footer{color:var(--muted);font-size:12px;margin-block-start:28px}
+@media print{nav,.toolbar,.hint{display:none}.panel{display:block!important;break-inside:avoid}.card .more{display:block}header{background:#0b4f8a;-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+</style>
+</head>
+<body>
+<header>
+ <h1>October 2026 Impact Summary</h1>
+ <p>Kevin McKinnerney · Microsoft Purview Principal Consultant · ECI · Oct 5 – Oct 30, 2026</p>
+</header>
+<div class="wrap">
+ <div class="kpis" id="kpis"></div>
+ <nav id="tabs">
+  <button data-t="ov" class="on">Overview</button>
+  <button data-t="en">Engagements</button>
+  <button data-t="tl">Timeline</button>
+  <button data-t="dl">Deliverables</button>
+  <button data-t="mt">Meetings</button>
+  <button data-t="nx">Next &amp; Asks</button>
+  <button data-t="gr">Growth</button>
+ </nav>
+
+ <section class="panel on" id="ov">
+  <p class="sum">In my first month at ECI I moved from onboarding to <b>leading client delivery</b>. I took over as lead on OEP's Purview implementation, ran the Silver Creek DLP Phase 1 kickoff in Julius's place, shaped and presented the Angeles Purview + Box Shield SOW, and delivered root-cause and advisory work for Aquarian and AMFT. Internally, I reviewed ECI's own Purview tenant, authored a recommended baseline and released a synthetic data toolkit the Purview team can use for demos.</p>
+  <div class="two">
+   <div class="box"><h3>Where the work went</h3><div class="hint">Deliverables by engagement</div><div class="bars" id="barsE"></div></div>
+   <div class="box"><h3>Kind of impact</h3><div class="hint">Deliverables by type</div><div class="bars" id="barsK"></div></div>
+  </div>
+  <div class="box" style="margin-block-start:16px"><h3>Top highlights</h3><ul id="hl"></ul></div>
+ </section>
+
+ <section class="panel" id="en">
+  <div class="toolbar" id="efil"></div>
+  <div class="hint">Select a card to see impact, contacts and next step.</div>
+  <div class="grid" id="cards" style="margin-block-start:10px"></div>
+ </section>
+
+ <section class="panel" id="tl"><div class="tl" id="weeks"></div></section>
+
+ <section class="panel" id="dl">
+  <div class="toolbar"><input type="search" id="dq" placeholder="Search deliverables…" aria-label="Search deliverables"><span id="dfil"></span></div>
+  <table><thead><tr><th data-k="0">Date ▾</th><th data-k="1">Engagement</th><th data-k="2">Deliverable</th><th data-k="3">Type</th></tr></thead><tbody id="dt"></tbody></table>
+ </section>
+
+ <section class="panel" id="mt">
+  <table><thead><tr><th>Date</th><th>Engagement</th><th>Meeting</th><th>My role</th></tr></thead><tbody id="mtb"></tbody></table>
+  <div class="hint">Upcoming: Nov 5, 12:30 PM CT – OEP Outlook DLP warning-rule design review.</div>
+ </section>
+
+ <section class="panel" id="nx">
+  <div class="two">
+   <div class="box"><h3>Where I need help</h3><div class="hint">Tick items off as they are resolved (not saved).</div><div id="asks"></div></div>
+   <div class="box"><h3>Next up by engagement</h3><ul id="nexts"></ul></div>
+  </div>
+ </section>
+
+ <section class="panel" id="gr">
+  <div class="grid" id="grow"></div>
+ </section>
+
+ <div class="toolbar" style="margin-block-start:20px"><button class="btn" id="expand">Expand all cards</button><button class="btn" id="print">Print / save as PDF</button></div>
+ <footer>Sources: weekly Lattice updates (Oct 5 – Oct 30), Outlook calendar, email and Teams activity, and OneDrive files. Meeting list shows accepted or led meetings only.</footer>
+</div>
+<script>
+const DATA = {"E": {"OEP": {"type": "Client", "status": "Active – lead", "color": "#0f766e", "summary": "Took over as lead for the Purview implementation; designed sensitivity labels and Outlook DLP warning rules.", "impact": ["Became the lead for OEP's Purview implementation in the final week of October.", "Created and published the “Limited Audience - Internal and Placement Agents” sensitivity label: co-author access for OEP, view-only for four placement-agent domains.", "Sent Olga a detailed breakdown of the requested Outlook warning rules (restricted list, fund performance, portfolio metrics, MMM deck, personal Gmail).", "Recommended a two-label external-sharing model (fixed permissions for placement agents, plus a flexible user-defined-permissions option).", "Proposed the MMM label design: default label on the MMM SharePoint library, visual markings, no encryption at first; plus classic Outlook guidance and tailored warning text.", "Verified the existing “MMM External” label is active and published to all users, and confirmed to Eva it does not yet encrypt or mark content."], "people": ["Eva Gonzalez", "Olga Koopman", "Harika Mudigonda"], "next": "Nov 5, 12:30 PM CT: review warning-rule design with Eva, Olga and Harika, agree on the MMM labeling approach, then build and test the rules in classic Outlook."}, "Silver Creek": {"type": "Client", "status": "Active – Phase 1", "color": "#1d4ed8", "summary": "SOW signed Oct 21; led the DLP Phase 1 kickoff on Oct 26 in Julius's place.", "impact": ["Built the SOW draft, execution plan and kickoff deck ahead of signature (SOW signed Oct 21).", "Organized and led the Oct 26 DLP Phase 1 kickoff: invitation, final client deck, internal slide-by-slide review, input survey and recap.", "Sent Chay and Marissa a summary splitting confirmed decisions (pilot group, silent monitoring, alerts, browsers, approved upload sites) from open questions."], "people": ["Chay Kao", "Marissa Costales", "Nate Kelso"], "next": "Finalize the Phase 1 technical build specification and pilot staff note once open questions are answered (Mac pilot user, OneDrive scope, Dropbox, upload sites, USB/SentinelOne)."}, "Angeles": {"type": "Client", "status": "SOW pending signature", "color": "#7c3aed", "summary": "Shaped a Purview + Box Shield data protection engagement from first session through SOW review.", "impact": ["Joined the Oct 15 Box Shield + Purview session and followed up with recommendations and meeting notes.", "Drafted the Purview & Box Data Protection Deployment SOW: Box connected to Defender for Cloud Apps and Purview, label taxonomy, Box Shield classification, AI access limited to classified content.", "Built the Angeles Purview & Box SOW Review deck and presented it at the Oct 28 SOW Q&A."], "people": ["Annie Chau", "Rodger Yuan", "Jin Huynh"], "next": "Pricing and scope response to Annie after her post-review concerns; decision sits with Julius and Jin."}, "Aquarian": {"type": "Client", "status": "Support – closing out", "color": "#b45309", "summary": "Delivered a full root-cause analysis on a sensitivity label issue and enabled the client's admin.", "impact": ["Investigated the Highly Confidential label issue and delivered a full root-cause analysis (RCA).", "Met Alfrin on Oct 14 and Oct 20 on sensitivity labels; sent a Copilot prompt guide for diagnosing mislabeled items.", "Sent NYC training options for SC-900 and SC-401 and a content search export of HC files from the Ops/IT SharePoint site."], "people": ["Alfrin Vallejo", "Gabriel Valley"], "next": "Close-out of the SharePoint labeling issue."}, "AMFT": {"type": "Client", "status": "Advisory", "color": "#be123c", "summary": "Reviewed Purview DLP configuration for CMMC and outlined a targeted licensing option.", "impact": ["Reviewed the CUI Endpoint DLP policy (CMMC restrictions on print, network shares, uploads, USB) for Andrew Raether and shared findings.", "Clarified how global settings take effect through policies, and flagged CrowdStrike as a potentially better fit for the Germany site.", "Outlined licensing only the EW users with the Purview Suite add-on for E3 (Endpoint DLP without E5); clarified Purview blocks sensitive-file transfer to USB but does not control the device."], "people": ["Andrew Raether"], "next": "Available for follow-up questions."}, "Pipeline": {"type": "Pipeline", "status": "Early stage", "color": "#475569", "summary": "Early support and new opportunities: Springs, Embree, Columbia Bank, Montcalm, Inflexion and a PE firm.", "impact": ["Springs: DLP opportunity; Simon Webster is connecting me with Jack Doyle (TA) for context.", "Embree (Claude Enterprise): added to the project plan by Michael Pistiolis on Oct 23; role details pending.", "Week 1: began supporting Columbia Bank, Silver Creek, Montcalm and a private equity firm SOW focused on Purview and Snowflake.", "Lab work: SQL on-prem classification/labeling and Snowflake classification with API adapters (proof of concept)."], "people": ["Simon Webster", "Michael Pistiolis"], "next": "Gather Springs context from Jack Doyle; confirm Embree role."}, "Internal ECI": {"type": "Internal", "status": "Ongoing", "color": "#0e7490", "summary": "Reviewed ECI's own Purview tenant, defined a recommended baseline and built reusable team tooling.", "impact": ["Built a read-only Purview review toolkit (PowerShell, v1.5) and ran it against the ECI tenant within my access scope.", "Delivered an ECI Purview Review findings report: 17 improvement opportunities (3 high, 7 medium, 7 low).", "Reconciled tenant configuration against the ELLA IQ Data Protect operating model and onboarding playbook.", "Authored “Purview and AI - ECI Recommended Baseline v2” (phased approach, 4-tier label taxonomy, DLP, Copilot/AI controls, lifecycle, audit).", "Released synthetic data toolkit v0.1.0 to the Purview team for demo and test data, with getting-started and technical design docs.", "Shared my Purview Data Security Deployment Guide with David Michael and explained label taxonomy guidance (Microsoft's 5×5, Public vs. General).", "Granted David Michael Global Admin on the BrownBear demo tenant; obtained the Purview Workload Content Administrator role through PIM (Oct 20).", "Started a daily Purview & Copilot Security Update digest (Oct 22 onward)."], "people": ["Julius Damato", "David Michael", "Bryan Lyons"], "next": "Labeling-baseline discussion with Bryan and David (General vs. Public, mandatory labeling); ELLA IQ readout once remaining documents are available; toolkit content packs and BrownBear demo data."}}, "D": [["2026-10-13", "Aquarian", "Highly Confidential label root-cause analysis", "Analysis"], ["2026-10-15", "Angeles", "Box Shield + Purview meeting notes and follow-up recommendations", "Recommendation"], ["2026-10-19", "Angeles", "Draft Purview & Box Data Protection Deployment SOW", "Scoping"], ["2026-10-20", "Aquarian", "Copilot prompt guide for investigating sensitivity labels", "Enablement"], ["2026-10-20", "Aquarian", "SC-900 / SC-401 training options and HC content search export", "Enablement"], ["2026-10-21", "AMFT", "Purview DLP configuration review findings", "Analysis"], ["2026-10-21", "AMFT", "Targeted Purview licensing option (E3 + Purview Suite)", "Recommendation"], ["2026-10-21", "Internal ECI", "Purview Data Security Deployment Guide shared with team", "Enablement"], ["2026-10-21", "Silver Creek", "DLP Phase 1 SOW draft and execution plan", "Scoping"], ["2026-10-22", "Internal ECI", "Daily Purview & Copilot Security Update digest", "Enablement"], ["2026-10-26", "Silver Creek", "Kickoff deck, internal slide review, input survey and recap", "Delivery"], ["2026-10-27", "Silver Creek", "Confirmed decisions and open questions summary", "Delivery"], ["2026-10-27", "Internal ECI", "ECI Purview review toolkit (v1.5) and findings report", "Analysis"], ["2026-10-27", "OEP", "“Limited Audience - Internal and Placement Agents” label", "Delivery"], ["2026-10-28", "Angeles", "Angeles Purview & Box SOW Review deck (presented)", "Scoping"], ["2026-10-28", "OEP", "Outlook warning rules breakdown and tailored warning text", "Delivery"], ["2026-10-29", "OEP", "External-sharing label model and MMM label design", "Recommendation"], ["2026-10-29", "Internal ECI", "ELLA IQ reconciliation of ECI Purview configuration", "Analysis"], ["2026-10-29", "Internal ECI", "Purview and AI - ECI Recommended Baseline v2", "Recommendation"], ["2026-10-30", "Internal ECI", "Synthetic data toolkit v0.1.0 with documentation", "Enablement"]], "M": [["2026-10-08", "Internal ECI", "ECI NYC Office & Teams – Active Directory session", "Attended"], ["2026-10-14", "Aquarian", "Touchbase re: Sensitivity Labels", "Attended"], ["2026-10-15", "Internal ECI", "David | Julius | Kevin – engagement approach sync", "Attended"], ["2026-10-15", "Angeles", "Angeles / ECI Box Shield + Purview", "Attended"], ["2026-10-15", "Internal ECI", "Claude Cowork – Initial Configuration and Intune Deployment", "Attended"], ["2026-10-20", "Aquarian", "Touchbase re: Sensitivity Labels", "Attended"], ["2026-10-21", "Internal ECI", "An Evening with ECI at Globe Life Field (Dallas)", "Attended"], ["2026-10-22", "Internal ECI", "ECI NYC Office & Teams – Meraki Management", "Attended"], ["2026-10-26", "Silver Creek", "Kickoff: DLP Implementation for Silver Creek", "Led"], ["2026-10-27", "Internal ECI", "ECI Main Event October 2026", "Attended"], ["2026-10-28", "Angeles", "Angeles / ECI Box Shield SOW Q&A", "Presented"]], "W": [{"wk": "Oct 5–9", "theme": "Onboarding & ramp-up", "pts": ["Completed 19.5 hours of required training (cybersecurity, harassment, EMCS/EMCSE, 10 of 16 orientation modules).", "Began supporting Columbia Bank, Silver Creek, Montcalm and a PE firm Purview + Snowflake SOW.", "Started labs: SQL on-prem classification/labeling and Snowflake classification POC."]}, {"wk": "Oct 12–16", "theme": "First client wins", "pts": ["Finished all required new-hire training (9.5 more hours).", "Delivered a full RCA for Aquarian's sensitivity label issue.", "Joined the Angeles Box Shield + Purview session and sent follow-up recommendations.", "Synced with David and Julius on how ECI positions and delivers engagements."]}, {"wk": "Oct 19–23", "theme": "Advisory & scoping", "pts": ["Aquarian: label touchbase, Copilot prompt guide, training options, HC content export.", "AMFT: DLP configuration review and targeted licensing option.", "Angeles: drafted the Purview & Box deployment SOW.", "Silver Creek SOW signed Oct 21; kickoff deck and execution plan ready.", "Dallas office Tue–Thu; Globe Life Field client event."]}, {"wk": "Oct 26–30", "theme": "Leading delivery", "pts": ["Led the Silver Creek DLP Phase 1 kickoff in Julius's place.", "Took over as lead for OEP's Purview implementation; published a new sensitivity label.", "Presented the Angeles SOW Review deck at the Oct 28 Q&A.", "Released synthetic data toolkit v0.1.0; delivered ECI Purview review, ELLA IQ reconciliation and Recommended Baseline v2."]}], "ASKS": [["Silver Creek", "Blocked", "Answers from Chay Kao and Marissa Costales to the Oct 27 follow-up questions before the build spec can be finalized."], ["OEP", "Decision", "Eva, Olga and Harika to confirm exception scope, restricted-list ownership, TMM document and final warning wording, ideally by Nov 5."], ["Angeles", "Decision", "Julius Damato and Jin Huynh to decide pricing and coordinate the response to Annie's scope/pricing concerns."], ["Internal ECI", "Access", "Owner and access for Alert Storyboards v3 and the Scenario Mapping Matrix to complete the ELLA IQ review."], ["Internal ECI", "Input", "Julius and Bryan to name missing customer categories for toolkit content packs; David to give toolkit feedback."], ["Pipeline", "Input", "Context from Jack Doyle (TA) on the Springs DLP opportunity."]], "GROW": [["Scoping & SOWs", "Asked for guidance on defining deliverables, estimating effort and setting scope boundaries; now drafting SOWs (Angeles, Silver Creek)."], ["Billable focus", "Learning to separate in-scope testing from exploratory work and to keep client conversations on findings and next steps."], ["Pricing conversations", "Angeles highlighted handling pricing objections as new territory; would welcome guidance on when to bring others in."], ["Capacity", "Actively on customer projects with capacity to take on more engagements or support other projects."]], "stats": {"clients": 5, "deliverables": 20, "meetings": 11, "led": 2, "training": 29, "sentiment": "5 each week"}};
+const $ = s => document.querySelector(s), el = (t, c, h) => { const e = document.createElement(t); if (c) e.className = c; if (h != null) e.textContent = h; return e; };
+const S = DATA.stats, E = DATA.E;
+[[S.clients, "Client engagements"], [S.deliverables, "Deliverables shipped"], [S.meetings, "Key meetings"], [S.led, "Meetings led / presented"], [S.training + " hrs", "Training completed"], [S.sentiment, "Weekly sentiment"]]
+ .forEach(([v, l]) => { const k = el("div", "kpi"); k.append(el("b", null, v), el("span", null, l)); $("#kpis").append(k); });
+document.querySelectorAll("#tabs button").forEach(b => b.addEventListener("click", () => {
+ document.querySelectorAll("#tabs button").forEach(x => x.classList.toggle("on", x === b));
+ document.querySelectorAll(".panel").forEach(p => p.classList.toggle("on", p.id === b.dataset.t));
+}));
+function bars(target, counts, colorOf) {
+ const max = Math.max(...Object.values(counts));
+ Object.entries(counts).sort((a, b) => b[1] - a[1]).forEach(([k, v]) => {
+  const r = el("div", "bar"); const i = el("i"); i.style.width = (v / max * 100) + "%"; i.style.setProperty("--c", colorOf(k));
+  const w = el("div"); w.append(i); r.append(el("span", null, k), w, el("b", null, v)); target.append(r);
+ });
+}
+const cE = {}, cK = {}; DATA.D.forEach(d => { cE[d[1]] = (cE[d[1]] || 0) + 1; cK[d[3]] = (cK[d[3]] || 0) + 1; });
+const kc = { Delivery: "#0f766e", Analysis: "#1d4ed8", Recommendation: "#7c3aed", Scoping: "#b45309", Enablement: "#0e7490" };
+bars($("#barsE"), cE, k => (E[k] || {}).color || "#64748b"); bars($("#barsK"), cK, k => kc[k] || "#64748b");
+["Took over as lead for OEP's Purview implementation and published a new placement-agent sensitivity label.",
+ "Led the Silver Creek DLP Phase 1 kickoff (SOW signed Oct 21) and turned it into confirmed decisions within a day.",
+ "Built and presented the Angeles Purview & Box SOW Review deck at the Oct 28 Q&A.",
+ "Delivered a full root-cause analysis for Aquarian's sensitivity label issue in my second week.",
+ "Reviewed ECI's own Purview tenant: 17 improvement opportunities, 3 high priority, and a Recommended Baseline v2.",
+ "Released synthetic data toolkit v0.1.0 so the Purview team can stand up realistic demo and test data."].forEach(t => $("#hl").append(el("li", null, t)));
+// engagements
+let ef = "All";
+function drawCards() {
+ const g = $("#cards"); g.textContent = "";
+ Object.entries(E).filter(([k, v]) => ef === "All" || v.type === ef).forEach(([k, v]) => {
+  const c = el("div", "card"); c.style.setProperty("--c", v.color);
+  const t = el("div", "top"); t.tabIndex = 0; const h = el("h3"); h.append(el("span", null, k), el("span", "tag", v.status)); t.append(h, el("p", null, v.summary));
+  const m = el("div", "more"); m.append(el("div", "lbl", "Impact")); const ul = el("ul"); v.impact.forEach(i => ul.append(el("li", null, i))); m.append(ul);
+  m.append(el("div", "lbl", "Worked with"), el("div", null, v.people.join(", ")), el("div", "lbl", "Next"), el("div", null, v.next));
+  c.append(t, m); const tog = () => c.classList.toggle("open"); t.addEventListener("click", tog); t.addEventListener("keydown", e => { if (e.key === "Enter") tog(); });
+  g.append(c);
+ });
+}
+["All", "Client", "Pipeline", "Internal"].forEach(f => { const b = el("button", "chip" + (f === "All" ? " on" : ""), f); b.addEventListener("click", () => { ef = f; document.querySelectorAll("#efil .chip").forEach(x => x.classList.toggle("on", x === b)); drawCards(); }); $("#efil").append(b); });
+drawCards();
+// timeline
+DATA.W.forEach(w => { const d = el("div", "wk box"); const h = el("h4", null, w.wk); h.append(el("small", null, w.theme)); const ul = el("ul"); w.pts.forEach(p => ul.append(el("li", null, p))); d.append(h, ul); $("#weeks").append(d); });
+// deliverables
+const fmt = s => new Date(s + "T12:00:00").toLocaleDateString("en-US", { month: "short", day: "numeric" });
+let df = "All", sk = 0, sd = 1;
+function drawD() {
+ const q = $("#dq").value.toLowerCase(), tb = $("#dt"); tb.textContent = "";
+ DATA.D.filter(d => (df === "All" || d[3] === df) && d.join(" ").toLowerCase().includes(q))
+  .sort((a, b) => a[sk] < b[sk] ? -sd : a[sk] > b[sk] ? sd : 0)
+  .forEach(d => { const r = el("tr"); r.append(el("td", null, fmt(d[0]))); const e = el("td"); const dot = el("span", "dot"); dot.style.background = (E[d[1]] || {}).color; e.append(dot, document.createTextNode(d[1])); r.append(e, el("td", null, d[2]), el("td", null, d[3])); tb.append(r); });
+}
+["All", ...Object.keys(kc)].forEach(f => { const b = el("button", "chip" + (f === "All" ? " on" : ""), f); b.addEventListener("click", () => { df = f; document.querySelectorAll("#dfil .chip").forEach(x => x.classList.toggle("on", x === b)); drawD(); }); $("#dfil").append(b, document.createTextNode(" ")); });
+$("#dq").addEventListener("input", drawD);
+document.querySelectorAll("#dl th").forEach(th => th.addEventListener("click", () => { const k = +th.dataset.k; sd = sk === k ? -sd : 1; sk = k; drawD(); }));
+drawD();
+// meetings
+DATA.M.forEach(m => { const r = el("tr"); r.append(el("td", null, fmt(m[0]))); const e = el("td"); const dot = el("span", "dot"); dot.style.background = (E[m[1]] || {}).color; e.append(dot, document.createTextNode(m[1])); r.append(e, el("td", null, m[2])); const ro = el("td"); const t = el("span", "tag", m[3]); ro.append(t); r.append(ro); $("#mtb").append(r); });
+// asks
+DATA.ASKS.forEach(a => { const d = el("label", "ask"); const cb = el("input"); cb.type = "checkbox"; cb.addEventListener("change", () => d.classList.toggle("done", cb.checked)); const s = el("span", "t"); const b = el("b", null, a[0] + " · " + a[1] + ": "); s.append(b, document.createTextNode(a[2])); d.append(cb, s); $("#asks").append(d); });
+Object.entries(E).forEach(([k, v]) => { const li = el("li"); li.append(el("b", null, k + ": "), document.createTextNode(v.next)); $("#nexts").append(li); });
+DATA.GROW.forEach(g => { const c = el("div", "box"); c.append(el("h3", null, g[0]), el("div", null, g[1])); $("#grow").append(c); });
+let all = false;
+$("#expand").addEventListener("click", () => { all = !all; document.querySelectorAll(".card").forEach(c => c.classList.toggle("open", all)); $("#expand").textContent = all ? "Collapse all cards" : "Expand all cards"; });
+$("#print").addEventListener("click", () => window.print());
+</script>
+</body>
+</html>
